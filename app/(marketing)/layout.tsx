@@ -18,3 +18,5 @@ const MarketingLayout = ({ children }: Props) => {
 };
 
 export default MarketingLayout;
+
+//39:00
