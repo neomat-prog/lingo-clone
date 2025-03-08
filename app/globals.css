@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+html,
+body,
+:root {
+  @apply h-full;
+}
+
 @plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
