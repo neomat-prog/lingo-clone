@@ -23,9 +23,11 @@
     "drizzle-orm": "^0.40.0",
     "lucide-react": "^0.477.0",
     "next": "15.2.1",
+    "next-themes": "^0.4.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "shadcn": "^2.4.0-canary.12",
+    "sonner": "^2.0.1",
     "tailwind-merge": "^3.0.2",
     "tailwindcss-animate": "^1.0.7"
   },
@@ -38,8 +40,8 @@
     "drizzle-kit": "^0.30.5",
     "eslint": "^9",
     "eslint-config-next": "15.2.1",
+    "pg": "^8.13.3",
     "tailwindcss": "^4",
-    "typescript": "^5",
-    "pg": "^8.13.3"
+    "typescript": "^5"
   }
 }
