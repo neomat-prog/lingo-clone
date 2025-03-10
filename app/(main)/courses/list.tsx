@@ -13,6 +13,7 @@ type Props = {
 };
 
 export const List = ({ courses, activeCourseId }: Props) => {
+  
   const router = useRouter();
   const [pending, startTransition] = useTransition();
 
