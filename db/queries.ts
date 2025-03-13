@@ -1,3 +1,4 @@
+import { challenges } from "./schema";
 import {
   units,
   userProgress,
@@ -52,6 +53,9 @@ export const getUnits = cache(async () => {
 
   const normalizedData = data.map((unit) => {
     const lessonsWithCompletedStatus = unit.lessons.map((lesson) => {
+      if (lesson.challenges.length === 0) {
+        return { ...lesson, completed: false };
+      }
       const allCompletedChallenges = lesson.challenges.every((challenge) => {
         return (
           challenge.challengeProgress &&
