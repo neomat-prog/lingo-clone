@@ -1,4 +1,4 @@
-import { challenges } from "./schema";
+
 import {
   units,
   userProgress,
