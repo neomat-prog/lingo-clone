@@ -1,12 +1,11 @@
 "use client";
 import Link from "next/link";
-import { Check, Crown, Star } from "lucide-react";
-import { CircularProgressbarWithChildren } from "react-circular-progressbar";
 
+import { Check, Crown, Star, Start } from "lucide-react";
+import { CircularProgressbarWithChildren } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-
 type Props = {
   id: number;
   index: number;
@@ -46,7 +45,8 @@ export const LessonButton = ({
   const isCompleted = !current && !locked;
 
   const Icon = isCompleted ? Check : isLast ? Crown : Star;
-  const href = isCompleted ? `/lesson/${id}` : `/lesson`;
+
+  const href = isCompleted ? `/lesson/${id}` : "/lesson";
 
   return (
     <Link
@@ -85,9 +85,9 @@ export const LessonButton = ({
               >
                 <Icon
                   className={cn(
-                    "h-28 w-28",
+                    "h-10 w-10",
                     locked
-                      ? "fill-neutal-400 text-neutral-400 stroke-neutral-400"
+                      ? "fill-neutral-400 text-neutral-400 stroke-neutral-400"
                       : "fill-primary-foreground text-primary-foreground",
                     isCompleted && "fill-none stroke-[4]"
                   )}
@@ -104,22 +104,12 @@ export const LessonButton = ({
             >
               <Icon
                 className={cn(
-                  "h-28 w-28",
+                  "h-10 w-10",
                   locked
-                    ? "fill-neutal-400 text-neutral-400 stroke-neutral-400"
+                    ? "fill-neutral-400 text-neutral-400 stroke-neutral-400"
                     : "fill-primary-foreground text-primary-foreground",
                   isCompleted && "fill-none stroke-[4]"
                 )}
-                style={{
-                  height: "32px",
-                  width: "32px",
-                  fill:
-                    isCompleted || isLast
-                      ? "none"
-                      : locked
-                      ? "rgb(163, 163, 163)"
-                      : "currentColor",
-                }}
               />
             </Button>
           </div>
@@ -128,5 +118,3 @@ export const LessonButton = ({
     </Link>
   );
 };
-
-//4:30:00
