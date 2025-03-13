@@ -91,6 +91,7 @@ export const LessonButton = ({
                       : "fill-primary-foreground text-primary-foreground",
                     isCompleted && "fill-none stroke-[4]"
                   )}
+                  style={{ height: "32px", width: "32" }}
                 />
               </Button>
             </CircularProgressbarWithChildren>
@@ -110,6 +111,7 @@ export const LessonButton = ({
                     : "fill-primary-foreground text-primary-foreground",
                   isCompleted && "fill-none stroke-[4]"
                 )}
+                style={{ height: "32px", width: "32" }}
               />
             </Button>
           </div>
