@@ -51,9 +51,6 @@ export const Quiz = ({
   const challenge = challenges[activeIndex];
   const options = challenge?.challengeOptions ?? [];
 
-  if (!challenges.length || !challenge) {
-    return <div>No challenges available for this lesson.</div>;
-  }
 
   const onNext = () => {
     setActiveIndex((current) => current + 1);
@@ -125,6 +122,10 @@ export const Quiz = ({
       });
     }
   };
+
+  if (!challenge) {
+    return <div>Finished the challenge!</div>;
+  }
 
   const title =
     challenge.type === "ASSIST"
