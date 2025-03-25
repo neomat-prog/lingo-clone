@@ -100,7 +100,7 @@ export const reduceHearts = async (challengeId: number) => {
   revalidatePath(`/lesson/${lessonId}`);
 };
 
-const POINTS_TO_REFILL = 10;
+
 
 export const refillHearts = async () => {
   const currentUserProgress = await getUserProgress();
