@@ -1,6 +1,7 @@
 "use server";
 
-import { POINTS_TO_REFILL } from "@/app/(main)/shop/items";
+
+import { POINTS_TO_REFILL } from "@/constants";
 import db from "@/db/drizzle";
 import {
   getCourseById,
