@@ -13,7 +13,7 @@ type Props = {
   hasActiveSubscription: boolean;
 };
 
-const POINTS_TO_REFILL = 10;
+export const POINTS_TO_REFILL = 10;
 
 export const Items = ({ hearts, points, hasActiveSubscription }: Props) => {
   const [pending, startTransition] = useTransition();
