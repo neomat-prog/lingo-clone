@@ -10,7 +10,7 @@ const App = () => {
     <Admin dataProvider={dataProvider}>
       <Resource
         name="courses"
-        recordRepresentation={"title"}
+        recordRepresentation="title"
         list={ListGuesser}
       />
     </Admin>

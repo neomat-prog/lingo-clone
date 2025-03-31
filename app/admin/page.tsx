@@ -1,11 +1,11 @@
-"use client";
+import { isAdmin } from "@/lib/admin";
+import { redirect } from "next/navigation";
+import App from "./app";
 
-import dynamic from "next/dynamic";
+export default async function AdminPage() {
+  if (!isAdmin) {
+    redirect("/");
+  }
 
-const App = dynamic(() => import("./app"), { ssr: false });
-
-const AdminPage = () => {
   return <App />;
-};
-
-export default AdminPage;
+}
