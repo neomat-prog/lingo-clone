@@ -6,8 +6,7 @@ export const LessonList = () => {
       <Datagrid rowClick="edit">
         <TextField source={"id"} />
         <TextField source={"title"} />
-        <TextField source={"description"} />
-        <ReferenceField source="courseId" reference="courses" />
+        <ReferenceField source="unitId" reference="courses" />
         <TextField source={"order"} />
 
       </Datagrid>
