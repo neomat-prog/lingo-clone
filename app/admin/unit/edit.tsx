@@ -1,5 +1,5 @@
 import {
-  Create,
+  Edit,
   NumberInput,
   ReferenceInput,
   required,
@@ -9,7 +9,7 @@ import {
 
 export const UnitEdit = () => {
   return (
-    <Create>
+    <Edit>
       <SimpleForm>
         <NumberInput source={"id"} validate={[required()]} label="Id" />
 
@@ -22,6 +22,6 @@ export const UnitEdit = () => {
         <ReferenceInput source="courseId" reference="courses" />
         <NumberInput source="input" validate={[required()]} label="Order" />
       </SimpleForm>
-    </Create>
+    </Edit>
   );
 };
