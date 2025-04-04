@@ -1,34 +1,32 @@
-import { getLesson, getUserProgress, getUserSubscription } from "@/db/queries";
 import { redirect } from "next/navigation";
+import { getLesson, getUserProgress, getUserSubscription } from "@/db/queries";
 import { Quiz } from "./quiz";
 
 const LessonPage = async () => {
-  const lessonData = getLesson();
-  const userProgressData = getUserProgress();
-  const userSubscriptionData = getUserSubscription();
-
   const [lesson, userProgress, userSubscription] = await Promise.all([
-    lessonData,
-    userProgressData,
-    userSubscriptionData,
+    getLesson(),
+    getUserProgress(),
+    getUserSubscription(),
   ]);
 
-  if (!lesson || !userProgress) {
-    redirect("/learn");
-  }
+  if (!lesson || !userProgress) redirect("/learn");
 
-  const intiialPercentage =
-    (lesson.challenges.filter((challenge) => challenge.completed).length /
-      lesson.challenges.length) *
-    100;
+  const completedChallenges = lesson.challenges.filter(
+    (challenge) => challenge.completed
+  ).length;
+
+  const initialPercentage =
+    lesson.challenges.length > 0
+      ? (completedChallenges / lesson.challenges.length) * 100
+      : 0;
 
   return (
     <Quiz
-      initialLessonId={lesson.id}
+      initialLessonId={lesson.id.toString()}
       initialLessonChallenges={lesson.challenges}
-      initialHearts={userProgress.hearts}
-      initialPercentage={intiialPercentage}
-      userSubscription={userSubscription}
+      initialHearts={userProgress.hearts || 0}
+      initialPercentage={initialPercentage}
+      userSubscription={userSubscription || undefined}
     />
   );
 };

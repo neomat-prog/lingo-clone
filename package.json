@@ -10,7 +10,8 @@
     "db:studio": "npx drizzle-kit studio",
     "db:push": "npx drizzle-kit push",
     "db:migrate": "npx drizzle-kit generate && npx drizzle-kit migrate",
-    "db:seed": "tsx ./scripts/seed.ts"
+    "db:seed": "tsx ./scripts/seed.ts",
+    "db:prod": "tsx ./scripts/prod.ts"
   },
   "dependencies": {
     "@aws-sdk/client-rds": "^3.761.0",
