@@ -5,45 +5,44 @@ import db from "@/db/drizzle";
 import { challenges } from "@/db/schema";
 import { isAdmin } from "@/lib/admin";
 
-export const GET = async (
+// GET handler
+export async function GET(
   _req: NextRequest,
   { params }: { params: { challengeId: string } }
-) => {
-  if (!isAdmin) return new NextResponse("Unauthorized", { status: 401 });
+) {
+  return NextResponse.json({ challengeId: params.challengeId });
+}
 
-  const data = await db.query.challenges.findFirst({
-    where: eq(challenges.id, Number(params.challengeId)),
-  });
+console.log(typeof challenges.id);
 
-  return NextResponse.json(data);
-};
-
-export const PUT = async (
+// PUT handler
+export async function PUT(
   req: NextRequest,
-  { params }: { params: { challengeId: string } }
-) => {
-  if (!isAdmin) return new NextResponse("Unauthorized", { status: 401 });
+  context: { params: { challengeId: string } }
+) {
+  if (!isAdmin()) return new NextResponse("Unauthorized", { status: 401 });
 
   const body = await req.json();
   const data = await db
     .update(challenges)
     .set(body)
-    .where(eq(challenges.id, Number(params.challengeId)))
+    .where(eq(challenges.id, Number(context.params.challengeId)))
     .returning();
 
   return NextResponse.json(data[0]);
-};
+}
 
-export const DELETE = async (
+// DELETE handler
+export async function DELETE(
   _req: NextRequest,
-  { params }: { params: { challengeId: string } }
-) => {
-  if (!isAdmin) return new NextResponse("Unauthorized", { status: 401 });
+  context: { params: { challengeId: string } }
+) {
+  if (!isAdmin()) return new NextResponse("Unauthorized", { status: 401 });
 
   const data = await db
     .delete(challenges)
-    .where(eq(challenges.id, Number(params.challengeId)))
+    .where(eq(challenges.id, Number(context.params.challengeId)))
     .returning();
 
   return NextResponse.json(data[0]);
-};
+}
