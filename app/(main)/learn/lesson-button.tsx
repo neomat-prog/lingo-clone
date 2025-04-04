@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 
-import { Check, Crown, Star, Start } from "lucide-react";
+import { Check, Crown, Star } from "lucide-react";
 import { CircularProgressbarWithChildren } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { cn } from "@/lib/utils";
